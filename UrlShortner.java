@@ -1,24 +1,29 @@
 import java.util.*;
 import java.text.SimpleDateFormat;
 class User {
-    public void urlShortner (HashMap user)
+    public void urlShortner (HashMap user = null, String unregisterUserUrl = null)
     {
-        int users = user.size();
         Calendar currentTime = Calendar.getInstance();
         SimpleDateFormat currentDate = new SimpleDateFormat("dd-MM-yyyy");
         HashMap shorterUrls = new HashMap();
+        if (unregisterUserUrl != null) {
+            String[] shortUrl = singleUrl.split("?");
+            String queryStringForUrl = currentDate.format(new Date())+""+currentTime.getTime();
+            System.out.println(shortUrl[0]+"/"+queryStringForUrl);
+            System.exit(0);
+        }
+        int users = user.size();
         for (int i=1; i<=users; i++){
             String data = user.get(i).toString();
             String[] urls = data.split(",");
             String singleUrl = urls[1];
             String queryStringForUrl = currentDate.format(new Date())+""+currentTime.getTime();
             String[] shortUrl = singleUrl.split("?");
-            shorterUrls.put(i,shortUrl[3]+"/"+queryStringForUrl);
+            shorterUrls.put(i,shortUrl[0]+"/"+queryStringForUrl);
         } 
         for (int i=1; i<=users; i++){
             System.out.println(shorterUrls.get(i).toString());
         }   
-
     }
 }
 
