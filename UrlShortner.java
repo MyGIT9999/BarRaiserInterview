@@ -1,7 +1,7 @@
 import java.util.*;
 import java.text.SimpleDateFormat;
 class User {
-    public void urlShortner (HashMap user = null, String unregisterUserUrl = null)
+    public void urlShortner (HashMap user, String unregisterUserUrl = null)
     {
         Calendar currentTime = Calendar.getInstance();
         SimpleDateFormat currentDate = new SimpleDateFormat("dd-MM-yyyy");
